@@ -1,0 +1,5 @@
+[alpine_servers]
+172.16.0.37
+
+[ubuntu_servers]
+172.16.0.38

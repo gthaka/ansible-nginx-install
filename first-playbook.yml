@@ -1,0 +1,29 @@
+---
+- name: Install and start nginx on apline
+  hosts: alpine_servers
+  become: yes
+  become_method: su
+  tasks:
+    - name: Install nginx
+      apk:
+        name: nginx
+        state: present
+    - name: Start nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+- name: Install and start nginx on ubuntu
+  hosts: ubuntu_servers
+  become: yes
+  tasks:
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
+    - name: Start nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
